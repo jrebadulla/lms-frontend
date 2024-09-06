@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
 import logo from "../Image/logo-svcc.png";
-import { UserOutlined } from "@ant-design/icons";
-import { Input, Button, message } from "antd";
+import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const LoginPage = () => {
+  
   const [isActive, setIsActive] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -45,7 +45,7 @@ const LoginPage = () => {
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/api/add-student",
-        formData
+        formData,
       );
       message.success("Sign up successful!");
       console.log(response.data);
@@ -57,17 +57,16 @@ const LoginPage = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
     axios
-      .post("http://127.0.0.1:8000/api/userLogin", { username, password })
+      .post("http://127.0.0.1:8000/api/user-login", { username, password })
       .then((response) => {
-        const { user_id, firstname, lastname, level_id } = response.data.user;
+        const { user_id, full_name, token } = response.data.user;
 
         localStorage.setItem(
           "user",
           JSON.stringify({
-            firstname,
-            lastname,
+            full_name,
             user_id,
-            level_id,
+            token,
           })
         );
 
