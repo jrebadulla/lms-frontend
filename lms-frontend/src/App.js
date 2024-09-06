@@ -1,14 +1,14 @@
-
-import './App.css';
+import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginPage from './Components/Login/LoginPage';
+import LoginPage from "./Components/Login/LoginPage";
+import LibrarianDashboard from "./Components/LibraianDashboard/LibrarianDashboard";
 
 function App() {
   return (
-<BrowserRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />}></Route>
-      
+        <Route path="/dashboard" element={<LibrarianDashboard />}></Route>
       </Routes>
     </BrowserRouter>
   );
