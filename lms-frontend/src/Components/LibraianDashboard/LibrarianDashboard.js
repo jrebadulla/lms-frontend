@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./LibrarianDashboard.css";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar, Table } from "antd";
+import ManageBook from "./ManageBook";
 
 const LibrarianDashboard = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -56,7 +57,7 @@ const LibrarianDashboard = () => {
         </div>
       </div>
       <div className="table-container">
-    
+        <ManageBook dataSource={data} columns={columns} />
       </div>
     </div>
   );
