@@ -6,10 +6,10 @@
 }
 
 .left-side-container {
-  background-color: maroon;
+  background-color: rgb(90, 6, 6);
   height: 100vh;
   width: 100%;
-  max-width: 250px;
+  max-width: 300px;
   align-items: center;
   display: flex;
   text-align: center;
@@ -49,7 +49,7 @@
 
 .categories-buttons button:hover {
   background-color: gold;
-  color: maroon;
+  color: rgb(61, 8, 8);
   transform: scale(1.1);
 }
 
@@ -65,8 +65,9 @@
 
 .table-container {
   padding: 10px;
-  width: 1050px;
+  width: 100%; 
   margin-top: 180px;
+  background-color: #fff;
 }
 
 .table-container .ant-table-thead > tr > th {
@@ -78,3 +79,15 @@
   background: #ddcdcd;
   color: #333;
 }
+
+@media screen and (max-width: 768px) {
+    .table-container {
+      padding: 5px;
+      margin-top: 50px; 
+    }
+  
+    .table-container .ant-table-thead > tr > th,
+    .table-container .ant-table-tbody > tr > td {
+      font-size: 12px; 
+    }
+  }

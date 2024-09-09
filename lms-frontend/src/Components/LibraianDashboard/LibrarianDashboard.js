@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./LibrarianDashboard.css";
 import { UserOutlined } from "@ant-design/icons";
-import { Avatar,Table } from "antd";
+import { Avatar, Table } from "antd";
 
 const LibrarianDashboard = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -30,7 +30,8 @@ const LibrarianDashboard = () => {
         key: title.toLowerCase(),
         render: (_, record) => (
           <span>
-            <a href="#edit">Edit</a> | <a href="#delete">Delete</a>
+            <a href="#edit">Edit</a> | <a href="#delete">Delete</a> |{" "}
+            <a href="#view">View</a>
           </span>
         ),
       };
@@ -55,11 +56,7 @@ const LibrarianDashboard = () => {
         </div>
       </div>
       <div className="table-container">
-        <Table
-          dataSource={data}
-          columns={columns}
-          pagination={{pageSize:5}}
-        />
+    
       </div>
     </div>
   );
