@@ -6,6 +6,7 @@ import ManageBook from "./ManageBook";
 
 const LibrarianDashboard = () => {
   const user = JSON.parse(localStorage.getItem("user"));
+  const [activeTab, setActiveTab] = useState('manageBook');
 
   const generateSampleData = (numItems) => {
     const data = [];
@@ -51,13 +52,14 @@ const LibrarianDashboard = () => {
         <Avatar className="user-avatar" size={80} icon={<UserOutlined />} />
         <p>{user.full_name}</p>
         <div className="categories-buttons">
-          <button>Manage Book</button>
-          <button>Manage Student</button>
-          <button>Reserve Book</button>
+        <button onClick={() => setActiveTab('manageBook')}>Manage Book</button>
+          <button onClick={() => setActiveTab('manageStudent')}>Manage Student</button>
+          <button onClick={() => setActiveTab('reserveBook')}>Reserve Book</button>
         </div>
       </div>
       <div className="table-container">
-        <ManageBook dataSource={data} columns={columns} />
+      {activeTab === 'manageBook' && <ManageBook dataSource={data} columns={columns} />}
+      
       </div>
     </div>
   );
